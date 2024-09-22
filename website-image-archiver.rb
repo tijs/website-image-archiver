@@ -50,6 +50,7 @@ class WebsiteArchiver
       true
     rescue StandardError => e
       logger.error("Error downloading image from #{url}: #{e.message}")
+      logger.error("Backtrace:\n\t#{e.backtrace.join("\n\t")}")
       false
     end
 
@@ -80,10 +81,10 @@ class WebsiteArchiver
 
       # Check for images in the main content area
       main_div = doc.at_css('div#main.box, div#content')
-      images += main_div.css('img[src*="default"]').map { |img| img['src'] } if main_div
+      images += main_div.css('img').map { |img| img['src'] } if main_div
 
       # If no images found in main content, check the entire document
-      images += doc.css('img[src*="default"]').map { |img| img['src'] } if images.empty?
+      images += doc.css('img').map { |img| img['src'] } if images.empty?
 
       images.uniq
     end
