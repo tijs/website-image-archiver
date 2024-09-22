@@ -1,0 +1,4 @@
+# Ignore contents of archive directory
+archive/*
+# But keep the directory itself
+!archive/.gitkeep
