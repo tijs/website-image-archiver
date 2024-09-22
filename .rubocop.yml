@@ -1,0 +1,48 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+
+# Metrics configurations
+Metrics/AbcSize:
+  Max: 60
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+# Style configurations
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+# Naming configurations
+Naming/FileName:
+  Exclude:
+    - 'website_image_archiver.rb'
+
+# Security configurations
+Security/Open:
+  Enabled: true
+
+# Layout configurations
+Layout/LineLength:
+  Max: 120
